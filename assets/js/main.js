@@ -30,9 +30,10 @@ function initAOS() {
 }
 
 /**
- * Inicializar Swiper para la flota
+ * Inicializar Swiper para la flota y servicios
  */
 function initSwiper() {
+    // Swiper para la flota
     const fleetSwiper = new Swiper('.fleet-slider', {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -59,6 +60,31 @@ function initSwiper() {
             1024: {
                 slidesPerView: 4,
             },
+        }
+    });
+
+    // Swiper para servicios móvil
+    const servicesSwiper = new Swiper('.services-carousel', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            480: {
+                slidesPerView: 1.2,
+                spaceBetween: 15,
+            },
+            640: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+            }
         }
     });
 }
