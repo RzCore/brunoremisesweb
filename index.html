@@ -5,32 +5,29 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Remises Bruno</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Remises Bruno - Transporte Premium</title>
+  <meta content="Servicio de transporte ejecutivo y de pasajeros en Chivilcoy. Más de 25 años de experiencia en viajes de corta, media y larga distancia." name="description">
+  <meta content="remises, transporte, chivilcoy, viajes, ejecutivo, aeropuerto, flota" name="keywords">
 
   <link rel="icon" href="/assets/img/Logo.jpg">
 
-  <!-- Add this to your <head> section -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -39,491 +36,691 @@
 
 <body>
 
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#hero">
+          <img src="assets/img/Logo.jpg" alt="Remises Bruno" class="logo-img">
+          <span class="brand-text">Remises Bruno</span>
+        </a>
 
-      <h1 class="logo me-auto"><a href="index.html"><strong>Remises Bruno</strong></a></h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
-          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-          <li><a class="nav-link scrollto" href="#fleet">Nuestra Flota</a></li>
-
-
-          <!-- Button trigger modal -->
-          <li><a class="nav-link scrollto" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <strong>Contacto</strong>
-            </a></li>
-
-
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#fleet">Flota</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link contact-btn" href="mailto:remisesbrunochivilcoy@gmail.com">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
+  <section id="hero" class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <!-- Road Animation Effect -->
+    <div class="road-animation">
+      <div class="highway">
+        <div class="highway-lines">
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+          <div class="highway-line"></div>
+        </div>
+      </div>
+    </div>
+    
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 order-1 order-lg-2 hero-img d-flex justify-content-center" data-aos="zoom-in"
-          data-aos-delay="200">
-          <img src="assets/img/Logo.jpg" class="img-thumbnail" alt="" style="border-radius: 200px;">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              <span class="gradient-text">Viajes que marcan</span><br>
+              <span class="highlight-text">la diferencia</span>
+            </h1>
+            <p class="hero-subtitle">
+              Seguridad y confort en cada trayecto, sin importar la distancia. 
+              Más de 25 años de experiencia en transporte premium.
+            </p>
+            <div class="hero-buttons">
+              <a href="https://wa.me/+5492346416730?text=Hola,%20vengo%20desde%20la%20web" 
+                 class="btn btn-primary btn-lg whatsapp-btn">
+                <i class="bi bi-whatsapp"></i>
+                Reservar Ahora
+              </a>
+              <a href="#services" class="btn btn-outline-light btn-lg scroll-btn">
+                Nuestros Servicios
+              </a>
+            </div>
+            
+            <!-- Mobile Logo -->
+            <div class="mobile-logo">
+              <img src="assets/img/Logo.jpg" alt="Remises Bruno" class="mobile-hero-logo">
+            </div>
+            
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Años de Experiencia</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">10.000  +</span>
+                <span class="stat-label">Clientes Satisfechos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Disponibilidad</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
-          data-aos="fade-up" data-aos-delay="200">
-          <h1>Viajes que marcan la diferencia</h1>
-          <h2>Seguridad y confort en cada trayecto, sin importar la distancia</h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="https://wa.me/+5492346416730?text=Hola,%20vengo%20desde%20la%20web"
-              class="btn-get-started scrollto">
-              <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon"
-                style="width: 24px; height: 24px; margin-right: 8px;">
-              Contáctanos
-            </a>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+          <div class="hero-image">
+            <img src="assets/img/Logo.jpg" alt="Remises Bruno" class="hero-logo">
           </div>
         </div>
       </div>
     </div>
 
-
-  </section><!-- End Hero -->
-
-
-  <main id="main">
-
-    <!-- ======= Clients Section ======= -->
-
-
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Sobre Nosotros</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              Con más de 25 años de experiencia en el sector del transporte, nuestra empresa se ha consolidado como una
-              opción confiable para viajes de corta, media y larga distancia. Contamos con una amplia flota de vehículos
-              y un equipo de trabajo comprometido, lo que nos distingue en el mercado.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Siempre estamos buscando nuevas maneras de mejorar nuestro
-                servicio para satisfacer las necesidades cambiantes de nuestros clientes.</li>
-              <li><i class="ri-check-double-line"></i> La seguridad de nuestros pasajeros es nuestra prioridad, con
-                conductores capacitados y vehículos en óptimas condiciones.</li>
-              <li><i class="ri-check-double-line"></i> Nos aseguramos de que cada aspecto de su viaje esté
-                cuidadosamente planificado y ejecutado.</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Nuestra misión es mejorar día a día, brindando un servicio de calidad que cumpla con las expectativas de
-              nuestros clientes. Todos nuestros choferes cuentan con licencia categoría D1, garantizando un viaje seguro
-              y confortable.
-
-              Nos esforzamos por ofrecer una atención personalizada, buscando siempre ser su primera opción cuando se
-              trata de movilidad, asegurando que cada viaje sea una experiencia placentera y segura.
-            </p>
-            <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Nuestros Servicios</h2>
-          <p>En Remises Bruno, nos especializamos en ofrecer soluciones de transporte de alta calidad para que cada
-            viaje sea cómodo y eficiente. Nuestros servicios están diseñados para satisfacer las necesidades de nuestros
-            clientes con la máxima atención al detalle y profesionalismo.</p>
-        </div>
-
-        <!-- Carousel -->
-        <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Transporte Ejecutivo</a></h4>
-                    <p>Ofrecemos un servicio de transporte ejecutivo con vehículos de alta gama y choferes
-                      profesionales, asegurando comodidad y puntualidad para nuestros clientes.</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Viajes de Corta Distancia</a></h4>
-                    <p>Nuestro servicio de viajes de corta distancia garantiza traslados rápidos y eficientes en el área
-                      metropolitana y alrededores.</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Viajes de Media y Larga Distancia</a></h4>
-                    <p>Para viajes más largos, ofrecemos opciones confortables y seguras para trayectos de media y larga
-                      distancia, adaptadas a sus necesidades.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Transporte para Eventos Especiales</a></h4>
-                    <p>Proveemos soluciones de transporte para eventos especiales, como bodas y conferencias, con
-                      vehículos adecuados y atención personalizada.</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Servicio de Aeropuerto</a></h4>
-                    <p>Ofrecemos transporte confiable y puntual desde y hacia el aeropuerto, asegurando una experiencia
-                      sin estrés.</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Servicio de Transporte Corporativo</a></h4>
-                    <p>Nuestro servicio de transporte corporativo está diseñado para satisfacer las necesidades de
-                      empresas, ofreciendo flexibilidad y profesionalismo.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Servicio de Transporte para Grupos</a></h4>
-                    <p>Disponemos de opciones para el transporte de grupos, garantizando comodidad y espacio para todos
-                      los pasajeros.</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 d-flex align-items-stretch">
-                  <div class="icon-box">
-                    <div class="icon"><i class="bx bx-car"></i></div>
-                    <h4><a href="nuestros-servicios.html">Servicio de Transporte a Medida</a></h4>
-                    <p>Adaptamos nuestro servicio de transporte a las necesidades específicas de cada cliente,
-                      asegurando la mejor experiencia posible.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Carousel Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-    <!-- End Services Section -->
-
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h3><strong>Remises Bruno</strong></h3>
-            <p>Viajar con nosotros es viajar con confianza</p>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Cta Section -->
-    <!-- ======= Fleet Section ======= -->
-<section id="fleet" class="fleet section-bg">
-  <div class="container" data-aos="fade-up">
-    <div class="section-title">
-      <h2>Conozca Nuestra Flota</h2>
-      <p>En Remises Bruno, nuestra flota está preparada para ofrecerle el mejor servicio de transporte. Contamos con
-        vehículos modernos, cómodos y seguros, listos para adaptarse a sus necesidades. ¡Descubra nuestra flota y viaje con confianza y excelencia!</p>
+    <div class="scroll-indicator" onclick="scrollToSection('#about')">
+      <div class="scroll-text">Descubre más</div>
+      <div class="scroll-arrow"></div>
     </div>
+  </section>
 
-    <div class="row">
-      <!-- Vehicle 1 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="vehicle-card">
-          <img src="assets/img/team/Logan-Frente.jpeg" class="img-fluid" alt="Vehículo 1">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-image">
+            <img src="assets/img/team/Logan-Frente.jpeg" alt="Nuestro Servicio" class="img-fluid rounded-4">
+            <div class="experience-badge">
+              <span class="years">25</span>
+              <span class="text">Años de<br>Experiencia</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="about-content">
+            <div class="section-header">
+              <span class="section-subtitle">Sobre Nosotros</span>
+              <h2 class="section-title">Tu confianza es nuestra prioridad</h2>
+            </div>
+            <p class="about-text">
+              Con más de 25 años de experiencia en el sector del transporte, Remises Bruno se ha consolidado 
+              como la opción confiable para viajes de corta, media y larga distancia en Chivilcoy y alrededores.
+            </p>
+            <div class="features-grid">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="bi bi-award"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Experiencia Comprobada</h4>
+                  <p>Más de dos décadas brindando servicio de calidad</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Seguridad Total</h4>
+                  <p>Conductores capacitados y vehículos en óptimas condiciones</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Puntualidad Garantizada</h4>
+                  <p>Llegamos a tiempo, siempre</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Vehicle 2 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="vehicle-card">
-          <img src="assets/img/team/Crono-Bordo-Izq.jpeg" class="img-fluid" alt="Vehículo 2">
-        </div>
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle">Nuestros Servicios</span>
+        <h2 class="section-title">Soluciones de transporte para cada necesidad</h2>
+        <p class="section-description">
+          Ofrecemos una amplia gama de servicios de transporte diseñados para satisfacer 
+          todas sus necesidades de movilidad con la máxima calidad y profesionalismo.
+        </p>
       </div>
 
-      <!-- Vehicle 3 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="vehicle-card">
-          <img src="assets/img/team/Cronos-Blanco-Izq.jpeg" class="img-fluid" alt="Vehículo 3">
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="bi bi-car-front"></i>
+          </div>
+          <h3>Transporte Ejecutivo</h3>
+          <p>Servicio premium con vehículos de alta gama y conductores profesionales para ejecutivos y eventos especiales.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Vehículos de lujo</li>
+            <li><i class="bi bi-check-circle"></i> Conductores profesionales</li>
+            <li><i class="bi bi-check-circle"></i> Servicio 24/7</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h3>Viajes Corta Distancia</h3>
+          <p>Traslados rápidos y eficientes en el área metropolitana y alrededores con máxima puntualidad.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Respuesta inmediata</li>
+            <li><i class="bi bi-check-circle"></i> Precios competitivos</li>
+            <li><i class="bi bi-check-circle"></i> Vehículos modernos</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="bi bi-airplane"></i>
+          </div>
+          <h3>Servicio Aeropuerto</h3>
+          <p>Transporte confiable y puntual desde y hacia el aeropuerto, asegurando una experiencia sin estrés.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Monitoreo de vuelos</li>
+            <li><i class="bi bi-check-circle"></i> Equipaje incluido</li>
+            <li><i class="bi bi-check-circle"></i> Reservas anticipadas</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3>Transporte Grupal</h3>
+          <p>Soluciones para grupos con vehículos espaciosos y cómodos para eventos, excursiones y viajes corporativos.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Capacidad amplia</li>
+            <li><i class="bi bi-check-circle"></i> Precios por grupo</li>
+            <li><i class="bi bi-check-circle"></i> Coordinación completa</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="bi bi-building"></i>
+          </div>
+          <h3>Transporte Corporativo</h3>
+          <p>Servicios especializados para empresas con horarios flexibles y atención personalizada para ejecutivos.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Contratos empresariales</li>
+            <li><i class="bi bi-check-circle"></i> Facturación mensual</li>
+            <li><i class="bi bi-check-circle"></i> Atención prioritaria</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon">
+            <i class="bi bi-calendar-event"></i>
+          </div>
+          <h3>Eventos Especiales</h3>
+          <p>Transporte para bodas, conferencias y eventos especiales con vehículos elegantes y servicio personalizado.</p>
+          <ul class="service-features">
+            <li><i class="bi bi-check-circle"></i> Vehículos elegantes</li>
+            <li><i class="bi bi-check-circle"></i> Coordinación de eventos</li>
+            <li><i class="bi bi-check-circle"></i> Servicio personalizado</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Vehicle 4 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="vehicle-card">
-          <img src="assets/img/team/istockphoto-157725793-612x612.jpg" class="img-fluid" alt="Vehículo 4">
+  <!-- ======= CTA Section ======= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content text-center" data-aos="zoom-in">
+        <h2>¿Listo para viajar con confianza?</h2>
+        <p>Contáctanos ahora y descubre por qué somos la mejor opción en transporte</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/+5492346416730?text=Hola,%20vengo%20desde%20la%20web" class="btn btn-primary btn-lg">
+            <i class="bi bi-whatsapp"></i> Reservar Ahora
+          </a>
+          <a href="tel:+5492346416730" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-telephone"></i> Llamar
+          </a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Vehicle 5 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-        <div class="vehicle-card">
-          <img src="assets/img/team/istockphoto-185302122-612x612.jpg" class="img-fluid" alt="Vehículo 5">
-        </div>
+  <!-- ======= Fleet Section ======= -->
+  <section id="fleet" class="fleet-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle">Nuestra Flota</span>
+        <h2 class="section-title">Vehículos modernos y confortables</h2>
+        <p class="section-description">
+          Contamos con una flota diversificada de vehículos modernos, cómodos y seguros, 
+          listos para adaptarse a todas sus necesidades de transporte.
+        </p>
       </div>
 
-      <!-- Vehicle 6 -->
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
-        <div class="vehicle-card">
-          <img src="assets/img/team/istockphoto-502292176-612x612.jpg" class="img-fluid" alt="Vehículo 6">
+      <div class="fleet-slider swiper" data-aos="fade-up" data-aos-delay="200">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/Logan-Frente.jpeg" alt="Renault Logan">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Renault Logan</h4>
+                    <p>Ideal para viajes urbanos y corta distancia</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 4 pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 2 maletas</li>
+                      <li><i class="bi bi-fuel-pump"></i> Económico</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/Cronos-Bordo-Izq.jpeg" alt="Fiat Cronos">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Fiat Cronos</h4>
+                    <p>Comodidad y estilo para viajes ejecutivos</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 5 pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 3 maletas</li>
+                      <li><i class="bi bi-star"></i> Premium</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/Cronos-Blanco-Izq.jpeg" alt="Fiat Cronos Blanco">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Fiat Cronos Blanco</h4>
+                    <p>Elegancia y confort para eventos especiales</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 5 pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 3 maletas</li>
+                      <li><i class="bi bi-gem"></i> Lujo</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/istockphoto-157725793-612x612.jpg" alt="Vehículo Ejecutivo">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Vehículo Ejecutivo</h4>
+                    <p>Máximo confort para viajes de negocios</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 4 pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 4 maletas</li>
+                      <li><i class="bi bi-award"></i> VIP</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/istockphoto-185302122-612x612.jpg" alt="Transporte Grupal">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Transporte Grupal</h4>
+                    <p>Ideal para grupos y eventos corporativos</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 8+ pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 6+ maletas</li>
+                      <li><i class="bi bi-building"></i> Corporativo</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <img src="assets/img/team/istockphoto-502292176-612x612.jpg" alt="Limusina">
+                <div class="fleet-overlay">
+                  <div class="fleet-details">
+                    <h4>Limusina</h4>
+                    <p>El máximo lujo para eventos especiales</p>
+                    <ul>
+                      <li><i class="bi bi-people"></i> 6 pasajeros</li>
+                      <li><i class="bi bi-suitcase"></i> 4 maletas</li>
+                      <li><i class="bi bi-crown"></i> Premium</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FAQ Section ======= -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle">Preguntas Frecuentes</span>
+        <h2 class="section-title">Todo lo que necesitas saber</h2>
+      </div>
+
+      <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                ¿Qué tipos de servicios ofrece Remises Bruno?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Ofrecemos una amplia gama de servicios incluyendo transporte ejecutivo, viajes de corta, media y larga distancia, 
+                servicio de aeropuerto, transporte corporativo, eventos especiales y transporte grupal. Todos nuestros servicios 
+                se caracterizan por la seguridad, puntualidad y profesionalismo.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                ¿Cómo puedo reservar un servicio?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Puedes reservar nuestros servicios a través de WhatsApp, llamando a nuestros números de teléfono, 
+                o enviando un mensaje desde nuestro sitio web. Te recomendamos hacer la reserva con anticipación 
+                para garantizar la disponibilidad del vehículo que necesitas.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                ¿Cuáles son las tarifas de los servicios?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Nuestras tarifas varían según la distancia, tipo de servicio y vehículo requerido. Ofrecemos precios 
+                competitivos y transparentes. Para obtener una cotización precisa, contáctanos con los detalles de tu viaje 
+                y te proporcionaremos un presupuesto personalizado sin compromiso.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                ¿Qué medidas de seguridad implementan?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                La seguridad es nuestra prioridad. Todos nuestros vehículos cuentan con mantenimiento regular, 
+                seguros actualizados y sistemas de seguridad modernos. Nuestros conductores están capacitados, 
+                cuentan con licencias profesionales y siguen estrictos protocolos de seguridad.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                ¿Ofrecen servicio 24/7?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sí, ofrecemos servicio las 24 horas del día, los 7 días de la semana. Estamos disponibles para 
+                emergencias, viajes de última hora y servicios programados en cualquier momento del día o la noche.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Contact Modal ======= -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="contact-info">
+                <h4>Información de Contacto</h4>
+                <div class="contact-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <div>
+                    <h5>Dirección</h5>
+                    <p>Av Sarmiento 271, Chivilcoy, CP 6620, Buenos Aires</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="bi bi-telephone"></i>
+                  <div>
+                    <h5>Teléfonos</h5>
+                    <p>2346 - 433000<br>2346 - 427637</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="bi bi-whatsapp"></i>
+                  <div>
+                    <h5>WhatsApp</h5>
+                    <p>2346 - 416730</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="bi bi-envelope"></i>
+                  <div>
+                    <h5>Email</h5>
+                    <p>remisesbrunochivilcoy@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <form class="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Teléfono</label>
+                  <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div class="mb-3">
+                  <label for="service" class="form-label">Tipo de servicio</label>
+                  <select class="form-select" id="service" required>
+                    <option value="">Selecciona un servicio</option>
+                    <option value="ejecutivo">Transporte Ejecutivo</option>
+                    <option value="corta">Corta Distancia</option>
+                    <option value="aeropuerto">Servicio Aeropuerto</option>
+                    <option value="grupal">Transporte Grupal</option>
+                    <option value="corporativo">Transporte Corporativo</option>
+                    <option value="eventos">Eventos Especiales</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Describe tu viaje..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar Consulta</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-<!-- End Fleet Section -->
-
-</section><!-- End Team Section -->
-
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <!-- ======= FAQ Section ======= -->
-    <section id="faq" class="faq section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Preguntas Frecuentes</h2>
-        </div>
-
-        <div class="faq-list">
-          <ul>
-            <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                data-bs-target="#faq-list-1">¿Qué tipo de servicios ofrece Remises Bruno?<i
-                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                <p>
-                  Remises Bruno ofrece una amplia gama de servicios de transporte, incluyendo viajes de corta, media y
-                  larga distancia. Nos especializamos en brindar un servicio de alta calidad con vehículos modernos y
-                  choferes altamente capacitados. Ya sea que necesite un traslado al aeropuerto, una excursión o un
-                  viaje
-                  corporativo, estamos comprometidos a proporcionar seguridad, confort y puntualidad en cada trayecto.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
-                class="collapsed">¿Cómo puedo solicitar un servicio de transporte con Remises Bruno? <i
-                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Puede solicitar nuestros servicios a través de nuestro sitio web, llamando a nuestro número de
-                  contacto
-                  o enviando un correo electrónico. Ofrecemos un sistema de reservas sencillo para su comodidad, y
-                  nuestro
-                  equipo estará encantado de asistirle con cualquier consulta o requerimiento específico que pueda
-                  tener.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
-                class="collapsed">¿Cuáles son las tarifas para los distintos tipos de viajes? <i
-                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Nuestras tarifas varían según la distancia del viaje y el tipo de servicio requerido. Ofrecemos
-                  tarifas
-                  competitivas y transparentes sin cargos ocultos. Para obtener una cotización precisa, le recomendamos
-                  que
-                  nos proporcione los detalles de su viaje y le proporcionaremos un presupuesto personalizado.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
-                class="collapsed">¿Qué medidas de seguridad implementan en sus vehículos? <i
-                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  En Remises Bruno, la seguridad de nuestros pasajeros es una prioridad. Todos nuestros vehículos están
-                  equipados con los últimos sistemas de seguridad y se someten a rigurosos controles y mantenimientos
-                  regulares. Además, nuestros choferes están altamente capacitados y cuentan con licencia adecuada para
-                  garantizar un viaje seguro y cómodo.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="500">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
-                class="collapsed">¿Cómo puedo contactar con el servicio de atención al cliente? <i
-                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Puede contactar con nuestro servicio de atención al cliente a través de nuestro número telefónico, por
-                  correo electrónico o utilizando el formulario de contacto disponible en nuestro sitio web. Nuestro
-                  equipo
-                  está disponible para responder cualquier pregunta y asistirle en todo lo que necesite.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </section>
-    </section><!-- End Frequently Asked Questions Section -->
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Contacto</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-              <div class="container" data-aos="fade-up">
-                <div class="row">
-                  <div class="col-lg-12 d-flex align-items-stretch">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                      <div class="row">
-                        <div class="form-group col-md-6">
-                          <label for="name">Nombre</label>
-                          <input type="text" name="name" class="form-control" id="name" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="email">Email</label>
-                          <input type="email" class="form-control" name="email" id="email" required>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="subject">Asunto</label>
-                        <input type="text" class="form-control" name="subject" id="subject" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
-                      </div>
-                      <div class="my-3">
-                        <div class="loading">Cargando...</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">¡Gracias por enviar tu mensaje!</div>
-                      </div>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-12 footer-contact">
-            <h3>Remises Bruno</h3>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-info">
+            <div class="footer-logo">
+              <img src="assets/img/Logo.jpg" alt="Remises Bruno">
+              <h3>Remises Bruno</h3>
+            </div>
             <p>
-              Av Sarmiento 271 <br>
-              Buenos Aires <br>
-              Chivilcoy, CP 6620<br>
-              Argentina <br><br>
-              <strong>Telefono:</strong> 2346 - 433000<br>
-              <strong>Telefono:</strong> 2346 - 427637<br>
-              <strong>Whatsapp:</strong> 2346 - 416730<br>
-              <strong>Email:</strong> remisesbrunochivilcoy@gmail.com<br>
+              Más de 25 años brindando servicio de transporte de calidad en Chivilcoy y alrededores. 
+              Tu confianza es nuestra prioridad.
             </p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre Nosotros</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#fleet">Flota</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Politicas de Privacidad</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Nuestras Redes Sociales</h4>
-            <p>Seguinos y enterate de las ultimas novedades</p>
-            <div class="social-links mt-3">
-              <a href="https://www.facebook.com/remises.bruno" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/brunoremises/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <div class="social-links">
+              <a href="https://www.facebook.com/remises.bruno" target="_blank">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/brunoremises/" target="_blank">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://wa.me/+5492346416730" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+              </a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-2 col-md-6">
+          <div class="footer-links">
+            <h4>Enlaces</h4>
+            <ul>
+              <li><a href="#hero">Inicio</a></li>
+              <li><a href="#about">Nosotros</a></li>
+              <li><a href="#services">Servicios</a></li>
+              <li><a href="#fleet">Flota</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-links">
+            <h4>Servicios</h4>
+            <ul>
+              <li><a href="#services">Transporte Ejecutivo</a></li>
+              <li><a href="#services">Servicio Aeropuerto</a></li>
+              <li><a href="#services">Transporte Grupal</a></li>
+              <li><a href="#services">Eventos Especiales</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>
+              <span><i class="bi bi-geo-alt"></i> Av Sarmiento 271, Chivilcoy</span>
+              <span><i class="bi bi-telephone"></i> 2346 - 433000</span>
+              <span><i class="bi bi-whatsapp"></i> 2346 - 416730</span>
+              <span><i class="bi bi-envelope"></i> remisesbrunochivilcoy@gmail.com</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
-  </footer><!-- End Footer -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>&copy; 2025 Remises Bruno. Todos los derechos reservados.</p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p>Diseñado con <i class="bi bi-heart-fill"></i> para Chivilcoy</p>
+          </div>
+        </div>
+        <div class="footer-author">
+          Desarrollada por
+          <a href="https://rizzofs.github.io/Mi-Porfolio2/" target="_blank">
+            <span class="fab-fr"></span>Federico Rizzo
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <!-- Back to top button -->
+  <button id="backToTop" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>
