@@ -313,6 +313,7 @@ p {
    =================================== */
 .hero-section {
   position: relative;
+  z-index: 1;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -2574,4 +2575,72 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+}
+
+/* Footer Desktop: 3 columnas bien alineadas */
+@media (min-width: 992px) {
+  .footer > .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .desktop-footer {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    text-align: left;
+  }
+  .desktop-footer > .col-lg-4 {
+    display: block;
+    width: 33.3333%;
+    max-width: 33.3333%;
+    flex: 0 0 33.3333%;
+    margin: 0;
+    text-align: left;
+  }
+  .footer-info, .footer-links, .footer-contact {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .desktop-footer {
+    display: none !important;
+  }
+  .mobile-footer {
+    display: block !important;
+  }
+}
+
+/* Mostrar el footer móvil en todos los dispositivos */
+.mobile-footer {
+  display: block !important;
+}
+
+/* Eliminar reglas que oculten .mobile-footer en desktop */
+@media (min-width: 769px) {
+  .mobile-footer {
+    display: block !important;
+  }
+}
+@media (min-width: 992px) {
+  .mobile-footer {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-btn {
+    width: auto !important;
+    display: inline-block !important;
+  }
+}
+
+.faq-section, .faq-container, .accordion {
+  position: relative;
+  z-index: 100;
 }
