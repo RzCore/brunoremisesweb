@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #050508;
+  --bg-secondary: #0c0d14;
+  --bg-card: rgba(18, 20, 32, 0.6);
+  --bg-card-hover: rgba(26, 29, 46, 0.85);
+  
+  --accent-gold: #d4af37;
+  --accent-gold-light: #f3e5ab;
+  --accent-silver: #a0a5b5;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #9aa2b1;
+  --text-muted: #646c7c;
+  
+  --border-color: rgba(212, 175, 55, 0.15);
+  --border-color-hover: rgba(212, 175, 55, 0.4);
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-light: var(--accent-gold-light);
+  --color-accent-silver: var(--accent-silver);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border-gold: var(--border-color);
+  --color-border-gold-hover: var(--border-color-hover);
+  --font-sans: 'Outfit', var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar flechas (spinners) en inputs tipo number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Efectos de firma Bruno Remises */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.silver-text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #cfd2d6 50%, #8a909d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(18, 20, 32, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass:hover {
+  background: rgba(26, 29, 46, 0.85);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #b28d28 100%);
+  color: #050508;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.bg-glow-radial-1 {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.bg-glow-radial-2 {
+  background: radial-gradient(circle, rgba(160, 165, 181, 0.06) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
