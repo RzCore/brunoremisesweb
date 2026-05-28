@@ -73,6 +73,9 @@ const vehicles = [
 ];
 
 const getFixtureUrl = () => {
+  if (import.meta.env.VITE_FIXTURE_URL) {
+    return import.meta.env.VITE_FIXTURE_URL;
+  }
   if (typeof window !== 'undefined') {
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     if (isLocalhost) {

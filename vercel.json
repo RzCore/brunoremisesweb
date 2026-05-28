@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/Fixture-RB/:path*",
+      "destination": "https://TU-URL-DEL-FIXTURE-DE-VERCEL.vercel.app/:path*"
+    }
+  ]
+}
