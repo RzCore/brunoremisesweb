@@ -35,7 +35,7 @@ const vehicles = [
     name: 'Fiat Cronos Bordó',
     category: 'Premium Ejecutivo',
     desc: 'Diseñado con elegancia superior. Perfecto para traslados ejecutivos y de negocios a media y larga distancia, brindando un interior refinado y la máxima seguridad en ruta.',
-    specs: { passengers: '5 Pasajeros', luggage: '3 Maletas', rating: 'Premium' },
+    specs: { passengers: '4 Pasajeros', luggage: '3 Maletas', rating: 'Premium' },
     image: '/assets/img/team/Cronos-Bordo-Izq.jpeg'
   },
   {
@@ -43,8 +43,16 @@ const vehicles = [
     name: 'Fiat Cronos Blanco',
     category: 'Eventos & Bodas',
     desc: 'Nuestra opción estelar para eventos de alta gala, ceremonias y recepciones. Aporta distinción visual, interior climatizado de última generación y choferes con vestimenta formal.',
-    specs: { passengers: '5 Pasajeros', luggage: '3 Maletas', rating: 'Lujo' },
+    specs: { passengers: '4 Pasajeros', luggage: '3 Maletas', rating: 'Lujo' },
     image: '/assets/img/team/Cronos-Blanco-Izq.jpeg'
+  },
+  {
+    id: 'combi',
+    name: 'Trafic / Combi',
+    category: 'Traslado Grupal Especial',
+    desc: 'La solución óptima para delegaciones, grupos corporativos, eventos familiares o viajes turísticos coordinados. Máximo confort y seguridad para viajes grupales de gran capacidad.',
+    specs: { passengers: '19 Pasajeros', luggage: '10 Maletas', rating: 'Grupal' },
+    image: '/assets/img/team/combi.jpeg'
   }
 ];
 
