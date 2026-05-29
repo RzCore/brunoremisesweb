@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/Fixture-RB/:path*",
-      "destination": "https://brunoremisesweb-mdnb.vercel.app/Fixture-RB/:path*"
-    }
-  ]
-}

@@ -79,10 +79,10 @@ const getFixtureUrl = () => {
   if (typeof window !== 'undefined') {
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     if (isLocalhost) {
-      return 'http://localhost:3000/Fixture-RB/';
+      return 'http://localhost:3000';
     }
   }
-  return '/Fixture-RB/';
+  return 'https://brunoremisesweb-mdnb.vercel.app/';
 };
 
 function App() {
