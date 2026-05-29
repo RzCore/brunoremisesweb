@@ -33,10 +33,29 @@ export default function AdminDashboard() {
   // Bitácora de Auditoría (Logs)
   const [logsList, setLogsList] = useState<any[]>([]);
   const [loadingLogs, setLoadingLogs] = useState(true);
+  const [apiOk, setApiOk] = useState<boolean | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    async function checkApiConnection() {
+      try {
+        const { error } = await supabase.from('fixture_usuarios').select('dni').limit(1);
+        if (!error) {
+          setApiOk(true);
+        } else {
+          setApiOk(false);
+        }
+      } catch (err) {
+        setApiOk(false);
+      }
+    }
+    if (mounted && user?.role === 'ADMIN') {
+      checkApiConnection();
+    }
+  }, [mounted, user]);
 
   useEffect(() => {
     if (mounted && !loading && (!user || user.role !== 'ADMIN')) {
@@ -335,13 +354,38 @@ export default function AdminDashboard() {
   return (
     <div className="flex flex-col gap-6 animate-in fade-in duration-500 pb-12">
       {/* Cabecera Premium */}
-      <section className="bg-accent-gold/10 border border-accent-gold/30 rounded-xl p-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] flex items-center justify-between">
+      <section className="bg-accent-gold/10 border border-accent-gold/30 rounded-xl p-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
         <div>
           <h2 className="text-xl font-bold text-accent-gold mb-1">Panel de Control ⚙️</h2>
           <p className="text-sm text-gray-400">Herramientas administrativas de Bruno Remises.</p>
         </div>
-        <div className="bg-accent-gold text-[#050508] font-black text-xs px-3 py-1.5 rounded-full select-none uppercase tracking-wider shadow shadow-accent-gold/25">
-          Admin
+        <div className="flex items-center gap-2.5">
+          {/* API Connection Indicator */}
+          {apiOk === null && (
+            <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-[10px] font-bold text-gray-400 select-none uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse"></span>
+              <span>Verificando API...</span>
+            </div>
+          )}
+          {apiOk === true && (
+            <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-full text-[10px] font-bold text-emerald-400 select-none uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>API Conectada</span>
+            </div>
+          )}
+          {apiOk === false && (
+            <div className="flex items-center gap-1.5 bg-rose-500/10 border border-rose-500/30 px-3 py-1.5 rounded-full text-[10px] font-bold text-rose-400 select-none uppercase tracking-wider shadow-[0_0_10px_rgba(244,63,94,0.1)] animate-bounce">
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+              <span>API Desconectada</span>
+            </div>
+          )}
+          
+          <div className="bg-accent-gold text-[#050508] font-black text-xs px-3.5 py-2 rounded-full select-none uppercase tracking-wider shadow shadow-accent-gold/25">
+            Admin
+          </div>
         </div>
       </section>
 
