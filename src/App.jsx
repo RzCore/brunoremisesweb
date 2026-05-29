@@ -45,30 +45,6 @@ const vehicles = [
     desc: 'Nuestra opción estelar para eventos de alta gala, ceremonias y recepciones. Aporta distinción visual, interior climatizado de última generación y choferes con vestimenta formal.',
     specs: { passengers: '5 Pasajeros', luggage: '3 Maletas', rating: 'Lujo' },
     image: '/assets/img/team/Cronos-Blanco-Izq.jpeg'
-  },
-  {
-    id: 'ejecutivo',
-    name: 'Vehículo Ejecutivo VIP',
-    category: 'Corporativo Premium',
-    desc: 'Exclusividad y privacidad absoluta. Autos de alta gama preparados para ejecutivos exigentes que requieren confort excepcional y traslados sin interrupciones en viajes interurbanos.',
-    specs: { passengers: '4 Pasajeros', luggage: '4 Maletas', rating: 'VIP' },
-    image: '/assets/img/team/istockphoto-157725793-612x612.jpg'
-  },
-  {
-    id: 'grupal',
-    name: 'Transporte Grupal',
-    category: 'Miniván / Eventos',
-    desc: 'La solución óptima para delegaciones, grupos corporativos, traslados familiares al aeropuerto o viajes turísticos coordinados, con amplio espacio interior.',
-    specs: { passengers: '8+ Pasajeros', luggage: '6+ Maletas', rating: 'Familiar' },
-    image: '/assets/img/team/istockphoto-185302122-612x612.jpg'
-  },
-  {
-    id: 'limusina',
-    name: 'Servicio VIP de Limusina',
-    category: 'Máxima Distinción',
-    desc: 'El pináculo de la elegancia y la distinción de clase mundial. Ideal para aniversarios, bodas sofisticadas y traslados de personalidades distinguidas con un servicio a bordo excepcional.',
-    specs: { passengers: '6 Pasajeros', luggage: '4 Maletas', rating: 'Exclusivo' },
-    image: '/assets/img/team/istockphoto-502292176-612x612.jpg'
   }
 ];
 
