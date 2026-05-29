@@ -524,22 +524,6 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
             </ul>
           </div>
 
-          {/* Card 5 */}
-          <div className="service-card glass">
-            <div className="service-icon-wrapper">
-              <Briefcase size={24} />
-            </div>
-            <h3 className="service-card-title">Cuentas Corrientes Empresarias</h3>
-            <p className="service-card-desc">
-              Facturación mensual integrada para pymes y corporaciones de Chivilcoy con tarifas corporativas preferenciales muy competitivas.
-            </p>
-            <ul className="service-card-features">
-              <li className="service-card-feature-item"><Check size={14} /> Factura electrónica detallada por viaje</li>
-              <li className="service-card-feature-item"><Check size={14} /> Asignación de unidades prioritarias</li>
-              <li className="service-card-feature-item"><Check size={14} /> Plataforma simplificada de solicitud de reservas</li>
-            </ul>
-          </div>
-
           {/* Card 6 */}
           <div className="service-card glass">
             <div className="service-icon-wrapper">
