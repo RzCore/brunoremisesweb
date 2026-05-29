@@ -331,7 +331,7 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
               <span className="fixture-trophy">🏆</span>
               <div className="hero-fixture-card-body">
                 <h4>Prode Mundial 2026</h4>
-                <p>Pronosticá los resultados de los partidos, sumá puntos y ganá viajes y beneficios exclusivos.</p>
+                <p>¡Llevate premios increíbles!</p>
               </div>
               <a href={getFixtureUrl()} className="btn-sm-gold">
                 Jugar Gratis
