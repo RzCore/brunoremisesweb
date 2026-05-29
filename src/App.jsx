@@ -728,17 +728,20 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
             <span>&copy; {new Date().getFullYear()} Remises Bruno. Todos los derechos reservados.</span>
           </div>
           <div className="footer-copy">
-            <span>
-              Desarrollado por{' '}
-              <a 
-                href="https://rzcore.dev" 
-                target="_blank" 
-                rel="noreferrer"
-                className="footer-author-link"
-              >
-                rzcore
-              </a>
-            </span>
+            <a 
+              href="https://rzcore.dev" 
+              target="_blank" 
+              rel="noreferrer"
+              className="footer-author-link"
+            >
+              <img 
+                src="/Isologo.png" 
+                alt="RzCore Logo" 
+              />
+              <span>
+                Desarrollado por <span style={{ fontWeight: '700', color: '#fff' }}>RzCore</span>
+              </span>
+            </a>
           </div>
         </div>
       </footer>
