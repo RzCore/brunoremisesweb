@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/Fixture-RB/:path*",
-      "destination": "https://TU-URL-DEL-FIXTURE-DE-VERCEL.vercel.app/:path*"
+      "destination": "https://brunoremisesweb-mdnb.vercel.app/Fixture-RB/:path*"
     }
   ]
 }
