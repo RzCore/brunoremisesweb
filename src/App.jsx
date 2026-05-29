@@ -549,8 +549,24 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
           <span className="section-tag">Nuestra Flota</span>
           <h2 className="section-title">Flota distinguida de primer nivel</h2>
           <p className="section-subtitle">
-            Nuestros vehículos reciben mantenciones mecánicas estrictas semanales y rigurosos procesos de sanitizado profundo para garantizar tu absoluto bienestar.
+            Contamos con una flota moderna de más de 30 vehículos con rigurosos procesos de sanitizado y mantenimiento semanal. Todos nuestros choferes profesionales cuentan con carnet habilitado categoría D1 para garantizarte un traslado de máxima seguridad y excelencia.
           </p>
+        </div>
+
+        {/* Fleet highlight badges */}
+        <div className="fleet-highlights" style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
+          <div className="fleet-badge glass" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 24px', borderRadius: '50px', border: '1px solid rgba(212, 175, 55, 0.25)', background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(212, 175, 55, 0.15)', color: 'var(--accent-gold)' }}>
+              <Car size={16} />
+            </span>
+            <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-primary)' }}>Más de 30 vehículos</span>
+          </div>
+          <div className="fleet-badge glass" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 24px', borderRadius: '50px', border: '1px solid rgba(212, 175, 55, 0.25)', background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(212, 175, 55, 0.15)', color: 'var(--accent-gold)' }}>
+              <ShieldCheck size={16} />
+            </span>
+            <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-primary)' }}>Choferes con Carnet Profesional D1</span>
+          </div>
         </div>
 
         {/* Switcher Tabs */}
