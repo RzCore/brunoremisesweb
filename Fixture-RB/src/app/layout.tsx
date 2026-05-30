@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Prode Premium - Remises Bruno",
   description: "Plataforma premium de predicciones de Remises Bruno.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 
