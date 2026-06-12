@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import { MOCK_MATCHES } from '@/data/mock';
+import { MOCK_MATCHES, TEAM_TLA_MAP } from '@/data/mock';
 
 export async function GET() {
   const apiKey = process.env.FOOTBALL_DATA_API_KEY;
@@ -72,8 +72,10 @@ async function autoSyncResults(apiMatches: any[]) {
     if (existingMap.has(mockMatch.id)) continue; // Already synced
     
     const live = finishedApiMatches.find((lm: any) => {
-      return (lm.homeTeam.tla === mockMatch.homeTeam.id || lm.homeTeam.name === mockMatch.homeTeam.name) &&
-             (lm.awayTeam.tla === mockMatch.awayTeam.id || lm.awayTeam.name === mockMatch.awayTeam.name);
+      const mappedHomeTla = TEAM_TLA_MAP[mockMatch.homeTeam.id] || mockMatch.homeTeam.id;
+      const mappedAwayTla = TEAM_TLA_MAP[mockMatch.awayTeam.id] || mockMatch.awayTeam.id;
+      return (lm.homeTeam.tla === mappedHomeTla || lm.homeTeam.name === mockMatch.homeTeam.name) &&
+             (lm.awayTeam.tla === mappedAwayTla || lm.awayTeam.name === mockMatch.awayTeam.name);
     });
 
     if (live) {
@@ -146,13 +148,15 @@ async function autoSyncResults(apiMatches: any[]) {
     });
 
     if (usuarios) {
-      const updates = usuarios.map(u => {
-        const score = userPointsMap.get(u.dni) || { puntos: 0, plenos: 0, tendencias: 0 };
-        return { ...u, puntos: score.puntos, plenos: score.plenos, tendencias: score.tendencias };
-      });
-      for (let i = 0; i < updates.length; i += 500) {
-        const chunk = updates.slice(i, i + 500);
-        await supabase.from('fixture_usuarios').upsert(chunk, { onConflict: 'dni' });
+      for (const [dni, score] of userPointsMap.entries()) {
+        await supabase
+          .from('fixture_usuarios')
+          .update({
+            puntos: score.puntos,
+            plenos: score.plenos,
+            tendencias: score.tendencias
+          })
+          .eq('dni', dni);
       }
     }
     

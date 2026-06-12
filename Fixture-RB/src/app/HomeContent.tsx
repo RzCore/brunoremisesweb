@@ -82,7 +82,9 @@ export default function HomeContent() {
           </div>
         )}
         {filteredMatches.map(function(match) {
-          var isLocked = match.status !== 'PENDING';
+          var matchTime = new Date(match.date).getTime();
+          var oneMinuteInMs = 60 * 1000;
+          var isLocked = match.status !== 'PENDING' || (matchTime - Date.now() < oneMinuteInMs);
           
           var d = new Date(match.date);
           var day = d.getDate();

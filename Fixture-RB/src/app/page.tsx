@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MOCK_MATCHES } from '@/data/mock';
+import { MOCK_MATCHES, TEAM_TLA_MAP } from '@/data/mock';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
 
@@ -150,9 +150,10 @@ export default function Home() {
     }
 
     const live = liveMatches.find(function(lm) {
-      // Comparar por códigos TLA de equipos o por sus nombres oficiales
-      const homeMatch = lm.homeTeam.tla === mockMatch.homeTeam.id || lm.homeTeam.name === mockMatch.homeTeam.name;
-      const awayMatch = lm.awayTeam.tla === mockMatch.awayTeam.id || lm.awayTeam.name === mockMatch.awayTeam.name;
+      const mappedHomeTla = TEAM_TLA_MAP[mockMatch.homeTeam.id] || mockMatch.homeTeam.id;
+      const mappedAwayTla = TEAM_TLA_MAP[mockMatch.awayTeam.id] || mockMatch.awayTeam.id;
+      const homeMatch = lm.homeTeam.tla === mappedHomeTla || lm.homeTeam.name === mockMatch.homeTeam.name;
+      const awayMatch = lm.awayTeam.tla === mappedAwayTla || lm.awayTeam.name === mockMatch.awayTeam.name;
       return homeMatch && awayMatch;
     });
 
@@ -193,8 +194,8 @@ export default function Home() {
 
   const pendingNoPredictionCount = mergedMatches.filter(function(m) {
     const matchTime = new Date(m.date).getTime();
-    const fortyEightHoursInMs = 48 * 60 * 60 * 1000;
-    const isUpcomingAndEditable = m.status === 'PENDING' && (matchTime - Date.now() >= fortyEightHoursInMs);
+    const oneMinuteInMs = 60 * 1000;
+    const isUpcomingAndEditable = m.status === 'PENDING' && (matchTime - Date.now() >= oneMinuteInMs);
     const pred = predictions[m.id];
     const hasPrediction = pred && pred.home !== '' && pred.away !== '';
     return isUpcomingAndEditable && !hasPrediction;
@@ -296,10 +297,10 @@ export default function Home() {
           </div>
         )}
         {filteredMatches.map(function(match) {
-          // Un partido se bloquea si ya empezó o si faltan menos de 48 horas para su inicio
+          // Un partido se bloquea si ya empezó o si falta menos de 1 minuto para su inicio
           var matchTime = new Date(match.date).getTime();
-          var fortyEightHoursInMs = 48 * 60 * 60 * 1000;
-          var isLocked = match.status !== 'PENDING' || (matchTime - Date.now() < fortyEightHoursInMs);
+          var oneMinuteInMs = 60 * 1000;
+          var isLocked = match.status !== 'PENDING' || (matchTime - Date.now() < oneMinuteInMs);
           
           var d = new Date(match.date);
           var day = d.getDate();
@@ -310,8 +311,10 @@ export default function Home() {
           var timeString = (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
  
           var pred = localPredictions[match.id];
-          var homeVal = isLocked ? (match.homeScore !== undefined && match.homeScore !== null ? match.homeScore : '') : (pred ? pred.home : '');
-          var awayVal = isLocked ? (match.awayScore !== undefined && match.awayScore !== null ? match.awayScore : '') : (pred ? pred.away : '');
+          var homeVal = pred ? pred.home : '';
+          var awayVal = pred ? pred.away : '';
+          var officialHome = match.homeScore !== undefined && match.homeScore !== null ? match.homeScore : null;
+          var officialAway = match.awayScore !== undefined && match.awayScore !== null ? match.awayScore : null;
           
           var isSaved = pred && pred.home !== '' && pred.away !== '';
           var inputDisabled = isLocked;
@@ -352,28 +355,35 @@ export default function Home() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <input
-                    type="number"
-                    min="0"
-                    max="99"
-                    className="w-12 h-14 bg-[#2a2a2a] border border-accent-gold/30 rounded-lg text-center text-xl font-bold text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold disabled:opacity-50 disabled:bg-[#1a1a1a]"
-                    value={homeVal}
-                    onChange={function(e) { handlePredictionChange(match.id, 'home', e.target.value); }}
-                    disabled={inputDisabled}
-                    placeholder="-"
-                  />
-                  <span className="text-gray-500 font-bold">-</span>
-                  <input
-                    type="number"
-                    min="0"
-                    max="99"
-                    className="w-12 h-14 bg-[#2a2a2a] border border-accent-gold/30 rounded-lg text-center text-xl font-bold text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold disabled:opacity-50 disabled:bg-[#1a1a1a]"
-                    value={awayVal}
-                    onChange={function(e) { handlePredictionChange(match.id, 'away', e.target.value); }}
-                    disabled={inputDisabled}
-                    placeholder="-"
-                  />
+                <div className="flex flex-col items-center justify-center gap-1">
+                  {officialHome !== null && officialAway !== null && (
+                    <div className="text-[10px] bg-accent-gold/20 text-accent-gold border border-accent-gold/30 px-2 py-0.5 rounded-md font-bold mb-1">
+                      Resultado Final: {officialHome} - {officialAway}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="number"
+                      min="0"
+                      max="99"
+                      className="w-12 h-14 bg-[#2a2a2a] border border-accent-gold/30 rounded-lg text-center text-xl font-bold text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold disabled:opacity-50 disabled:bg-[#1a1a1a]"
+                      value={homeVal}
+                      onChange={function(e) { handlePredictionChange(match.id, 'home', e.target.value); }}
+                      disabled={inputDisabled}
+                      placeholder="-"
+                    />
+                    <span className="text-gray-500 font-bold">-</span>
+                    <input
+                      type="number"
+                      min="0"
+                      max="99"
+                      className="w-12 h-14 bg-[#2a2a2a] border border-accent-gold/30 rounded-lg text-center text-xl font-bold text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold disabled:opacity-50 disabled:bg-[#1a1a1a]"
+                      value={awayVal}
+                      onChange={function(e) { handlePredictionChange(match.id, 'away', e.target.value); }}
+                      disabled={inputDisabled}
+                      placeholder="-"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex flex-col items-center flex-1 gap-1">

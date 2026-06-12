@@ -16,6 +16,21 @@ export interface Match {
   awayScore?: number;
 }
 
+export const TEAM_TLA_MAP: Record<string, string> = {
+  "MXI": "MEX", "SUD": "RSA", "COR": "KOR", "REP": "CZE",
+  "CAN": "CAN", "BOS": "BIH", "EST": "USA", "PAR": "PAR",
+  "QAT": "QAT", "SUI": "SUI", "BRA": "BRA", "MAR": "MAR",
+  "HAI": "HAI", "ESC": "SCO", "AUS": "AUS", "TUR": "TUR",
+  "ALE": "GER", "CUR": "CUW", "PAS": "NED", "JAP": "JPN",
+  "COS": "CIV", "ECU": "ECU", "SUE": "SWE", "TNE": "TUN",
+  "ESP": "ESP", "CAB": "CPV", "BLG": "BEL", "EGI": "EGY",
+  "ARA": "KSA", "URU": "URU", "IRN": "IRN", "NUE": "NZL",
+  "FRA": "FRA", "SEN": "SEN", "IRA": "IRQ", "NOR": "NOR",
+  "ARG": "ARG", "ALG": "ALG", "AUT": "AUT", "JOR": "JOR",
+  "POR": "POR", "RDC": "COD", "ING": "ENG", "CRO": "CRO",
+  "GHA": "GHA", "PAN": "PAN", "UZB": "UZB", "COL": "COL"
+};
+
 export const TEAMS: Record<string, Team> = {
   "MXI": {
     "id": "MXI",

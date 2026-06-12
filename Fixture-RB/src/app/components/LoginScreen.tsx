@@ -121,7 +121,8 @@ export default function LoginScreen() {
         </div>
 
         {isRecovering ? (
-          /* Formulario de Recuperación de Clave */
+          <>
+          {/* Formulario de Recuperación de Clave */}
           <form onSubmit={handleRecoverSubmit} className="flex flex-col gap-4 relative z-10">
             <div className="flex flex-col gap-1.5">
               <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center mb-1">Recuperar Clave</h2>
@@ -171,6 +172,7 @@ export default function LoginScreen() {
               Volver al inicio
             </button>
           </form>
+          </>
         ) : (
           <>
             {/* Toggle Login / Registro */}
@@ -243,7 +245,8 @@ export default function LoginScreen() {
                 </button>
               </form>
             ) : (
-          /* Formulario de Registro */
+          <>
+          {/* Formulario de Registro */}
           <form onSubmit={handleRegisterSubmit} className="flex flex-col gap-3.5 relative z-10">
             <div className="flex flex-col gap-1">
               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Nombre y Apellido</label>
@@ -320,6 +323,8 @@ export default function LoginScreen() {
           </form>
           </>
         )}
+        </>
+      )}
       </div>
       
       {/* Footer de la Agrupación */}
