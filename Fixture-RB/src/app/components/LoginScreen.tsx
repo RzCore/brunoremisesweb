@@ -19,6 +19,13 @@ export default function LoginScreen() {
   const [regEmail, setRegEmail] = useState('');
   const [regError, setRegError] = useState('');
 
+  // Recover Password Form
+  const [isRecovering, setIsRecovering] = useState(false);
+  const [recoverEmail, setRecoverEmail] = useState('');
+  const [recoverLoading, setRecoverLoading] = useState(false);
+  const [recoverError, setRecoverError] = useState('');
+  const [recoverSuccess, setRecoverSuccess] = useState('');
+
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError('');
@@ -63,6 +70,35 @@ export default function LoginScreen() {
     }
   };
 
+  const handleRecoverSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setRecoverError('');
+    setRecoverSuccess('');
+    setRecoverLoading(true);
+
+    try {
+      const response = await fetch('/api/recuperar-clave', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: recoverEmail }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setRecoverError(data.error || 'Ocurrió un error inesperado.');
+      } else {
+        setRecoverSuccess(data.message || 'Se ha enviado un correo con tus credenciales.');
+      }
+    } catch (err) {
+      console.error(err);
+      setRecoverError('No se pudo conectar con el servidor. Por favor intentá más tarde.');
+    } finally {
+      setRecoverLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-[80vh] flex flex-col justify-center items-center px-4 py-8 animate-in fade-in duration-700">
       
@@ -84,69 +120,129 @@ export default function LoginScreen() {
           </div>
         </div>
 
-        {/* Toggle Login / Registro */}
-        <div className="grid grid-cols-2 bg-black/40 border border-white/5 rounded-xl p-1 gap-1 mb-6 relative z-10">
-          <button 
-            onClick={() => { setIsLogin(true); setLoginError(''); }}
-            className={`w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-              isLogin ? 'bg-accent-gold text-[#050508] shadow-md' : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            Ingresar
-          </button>
-          <button 
-            onClick={() => { setIsLogin(false); setRegError(''); }}
-            className={`w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-              !isLogin ? 'bg-accent-gold text-[#050508] shadow-md' : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            Registrarse
-          </button>
-        </div>
-
-        {/* Formulario de Login */}
-        {isLogin ? (
-          <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4 relative z-10">
+        {isRecovering ? (
+          /* Formulario de Recuperación de Clave */
+          <form onSubmit={handleRecoverSubmit} className="flex flex-col gap-4 relative z-10">
             <div className="flex flex-col gap-1.5">
+              <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center mb-1">Recuperar Clave</h2>
+              <p className="text-xs text-gray-400 leading-relaxed text-center mb-2">
+                Ingresá tu dirección de correo electrónico registrada. Te enviaremos tu contraseña (tu D.N.I.) de inmediato.
+              </p>
               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Correo Electrónico de Cliente</label>
               <input 
-                type="text" 
+                type="email" 
                 required
-                value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
+                value={recoverEmail}
+                onChange={(e) => setRecoverEmail(e.target.value)}
                 className="w-full bg-[#2a2a2a] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
-                placeholder="Ingresá tu correo electrónico"
+                placeholder="martin@remisesbruno.com"
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Contraseña (Tu D.N.I.)</label>
-              <input 
-                type="password" 
-                required
-                value={loginPass}
-                onChange={(e) => setLoginPass(e.target.value)}
-                className="w-full bg-[#2a2a2a] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
-                placeholder="Ingresá tu D.N.I."
-              />
-            </div>
-
-            {loginError && (
+            {recoverError && (
               <p className="text-red-500 text-xs font-medium bg-red-950/20 border border-red-500/20 rounded-lg p-2.5 pl-3 leading-relaxed mt-1">
-                ⚠️ {loginError}
+                ⚠️ {recoverError}
+              </p>
+            )}
+
+            {recoverSuccess && (
+              <p className="text-emerald-400 text-xs font-medium bg-emerald-950/20 border border-emerald-500/20 rounded-lg p-2.5 pl-3 leading-relaxed mt-1">
+                ✅ {recoverSuccess}
               </p>
             )}
 
             <button 
               type="submit"
-              className="w-full mt-2 bg-accent-gold text-[#050508] font-bold py-3.5 rounded-xl hover:bg-accent-gold-light transition-all shadow-lg shadow-accent-gold/10 hover:shadow-accent-gold/20 text-xs uppercase tracking-wider active:scale-[0.98]"
+              disabled={recoverLoading}
+              className="w-full mt-2 bg-accent-gold text-[#050508] font-bold py-3.5 rounded-xl hover:bg-accent-gold-light transition-all shadow-lg shadow-accent-gold/10 hover:shadow-accent-gold/20 text-xs uppercase tracking-wider active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Iniciar Sesión
+              {recoverLoading ? 'Enviando...' : 'Recuperar Clave'}
             </button>
 
-
+            <button 
+              type="button"
+              onClick={() => {
+                setIsRecovering(false);
+                setRecoverError('');
+                setRecoverSuccess('');
+              }}
+              className="w-full text-center text-xs font-bold text-gray-400 hover:text-white uppercase tracking-wider mt-1 cursor-pointer transition-all"
+            >
+              Volver al inicio
+            </button>
           </form>
         ) : (
+          <>
+            {/* Toggle Login / Registro */}
+            <div className="grid grid-cols-2 bg-black/40 border border-white/5 rounded-xl p-1 gap-1 mb-6 relative z-10">
+              <button 
+                onClick={() => { setIsLogin(true); setLoginError(''); }}
+                className={`w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isLogin ? 'bg-accent-gold text-[#050508] shadow-md' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                Ingresar
+              </button>
+              <button 
+                onClick={() => { setIsLogin(false); setRegError(''); }}
+                className={`w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  !isLogin ? 'bg-accent-gold text-[#050508] shadow-md' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                Registrarse
+              </button>
+            </div>
+
+            {/* Formulario de Login */}
+            {isLogin ? (
+              <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4 relative z-10">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Correo Electrónico de Cliente</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                    className="w-full bg-[#2a2a2a] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
+                    placeholder="Ingresá tu correo electrónico"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between items-center px-1">
+                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Contraseña (Tu D.N.I.)</label>
+                    <button
+                      type="button"
+                      onClick={() => setIsRecovering(true)}
+                      className="text-[10px] font-bold text-accent-gold hover:text-accent-gold-light uppercase tracking-wider cursor-pointer transition-all"
+                    >
+                      ¿Olvidaste tu clave?
+                    </button>
+                  </div>
+                  <input 
+                    type="password" 
+                    required
+                    value={loginPass}
+                    onChange={(e) => setLoginPass(e.target.value)}
+                    className="w-full bg-[#2a2a2a] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
+                    placeholder="Ingresá tu D.N.I."
+                  />
+                </div>
+
+                {loginError && (
+                  <p className="text-red-500 text-xs font-medium bg-red-950/20 border border-red-500/20 rounded-lg p-2.5 pl-3 leading-relaxed mt-1">
+                    ⚠️ {loginError}
+                  </p>
+                )}
+
+                <button 
+                  type="submit"
+                  className="w-full mt-2 bg-accent-gold text-[#050508] font-bold py-3.5 rounded-xl hover:bg-accent-gold-light transition-all shadow-lg shadow-accent-gold/10 hover:shadow-accent-gold/20 text-xs uppercase tracking-wider active:scale-[0.98]"
+                >
+                  Iniciar Sesión
+                </button>
+              </form>
+            ) : (
           /* Formulario de Registro */
           <form onSubmit={handleRegisterSubmit} className="flex flex-col gap-3.5 relative z-10">
             <div className="flex flex-col gap-1">
@@ -222,6 +318,7 @@ export default function LoginScreen() {
               Crear Cuenta & Jugar
             </button>
           </form>
+          </>
         )}
       </div>
       

@@ -9,6 +9,7 @@ export default function Home() {
   const { user } = useAuth();
   const [mounted, setMounted] = useState(false);
   const [filter, setFilter] = useState<'PENDING' | 'COMPLETED' | 'ALL'>('PENDING');
+  const [timeFilter, setTimeFilter] = useState<'ALL' | 'PAST' | 'TODAY' | 'UPCOMING'>('ALL');
   const [predictions, setPredictions] = useState<Record<string, { home: number | '', away: number | '' }>>({});
   const [localPredictions, setLocalPredictions] = useState<Record<string, { home: number | '', away: number | '' }>>({});
   const [timeoutsMap, setTimeoutsMap] = useState<Record<string, any>>({});
@@ -171,8 +172,22 @@ export default function Home() {
   const filteredMatches = mergedMatches.filter(function(match) {
     const pred = predictions[match.id];
     const hasPrediction = pred && pred.home !== '' && pred.away !== '';
-    if (filter === 'PENDING') return !hasPrediction;
-    if (filter === 'COMPLETED') return hasPrediction;
+    if (filter === 'PENDING' && hasPrediction) return false;
+    if (filter === 'COMPLETED' && !hasPrediction) return false;
+
+    if (timeFilter !== 'ALL') {
+      const matchDate = new Date(match.date);
+      const now = new Date();
+      
+      const isSameDay = matchDate.getDate() === now.getDate() && 
+                        matchDate.getMonth() === now.getMonth() && 
+                        matchDate.getFullYear() === now.getFullYear();
+
+      if (timeFilter === 'TODAY' && !isSameDay) return false;
+      if (timeFilter === 'PAST' && (isSameDay || matchDate.getTime() >= now.getTime())) return false;
+      if (timeFilter === 'UPCOMING' && (isSameDay || matchDate.getTime() <= now.getTime())) return false;
+    }
+
     return true;
   });
 
@@ -244,6 +259,33 @@ export default function Home() {
           className={`w-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider py-3 rounded-md transition-all touch-manipulation cursor-pointer ${filter === 'ALL' ? 'bg-accent-gold text-[#050508] shadow-md' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
         >
           Todos
+        </button>
+      </div>
+
+      <div className="flex flex-wrap gap-2 relative z-20">
+        <button 
+          onClick={function() { setTimeFilter('ALL'); }}
+          className={`px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-md transition-all cursor-pointer ${timeFilter === 'ALL' ? 'bg-white/20 text-white' : 'bg-[#1e1e1e] border border-white/10 text-gray-400 hover:bg-white/10'}`}
+        >
+          Cualquier Día
+        </button>
+        <button 
+          onClick={function() { setTimeFilter('PAST'); }}
+          className={`px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-md transition-all cursor-pointer ${timeFilter === 'PAST' ? 'bg-white/20 text-white' : 'bg-[#1e1e1e] border border-white/10 text-gray-400 hover:bg-white/10'}`}
+        >
+          Pasados
+        </button>
+        <button 
+          onClick={function() { setTimeFilter('TODAY'); }}
+          className={`px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-md transition-all cursor-pointer shadow-sm ${timeFilter === 'TODAY' ? 'bg-accent-gold text-[#050508]' : 'bg-[#1e1e1e] border border-white/10 text-gray-400 hover:bg-white/10'}`}
+        >
+          Hoy
+        </button>
+        <button 
+          onClick={function() { setTimeFilter('UPCOMING'); }}
+          className={`px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-md transition-all cursor-pointer ${timeFilter === 'UPCOMING' ? 'bg-white/20 text-white' : 'bg-[#1e1e1e] border border-white/10 text-gray-400 hover:bg-white/10'}`}
+        >
+          Próximos
         </button>
       </div>
 

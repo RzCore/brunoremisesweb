@@ -89,16 +89,16 @@ export default function RankingContent() {
       });
     }
 
-    // 1. Mostrar los primeros 10
-    const top10 = list.slice(0, 10);
-    const elements = top10.map(function(item, index) {
+    // 1. Mostrar los primeros 50
+    const top50 = list.slice(0, 50);
+    const elements = top50.map(function(item, index) {
       return renderItem(item, index);
     });
 
-    // 2. Si el usuario actual existe y no está en el top 10, mostrar puntos suspensivos y su puesto
+    // 2. Si el usuario actual existe y no está en el top 50, mostrar puntos suspensivos y su puesto
     if (user) {
       const currentUserIndex = list.findIndex(u => u.id === user.dni);
-      if (currentUserIndex >= 10) {
+      if (currentUserIndex >= 50) {
         elements.push(
           <div key="separator" className="flex justify-center py-2 bg-[#1a1a1a]/20 border-b border-white/5 select-none">
             <span className="text-gray-500 font-extrabold tracking-[0.4em] text-xs text-center py-0.5">...</span>
