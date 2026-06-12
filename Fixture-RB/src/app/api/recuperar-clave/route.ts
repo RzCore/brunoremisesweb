@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { email } = await request.parseBody ? await request.parseBody() : await request.json();
+    const { email } = await request.json();
 
     if (!email || !email.includes('@')) {
       return NextResponse.json({ error: 'Por favor ingresá un correo electrónico válido.' }, { status: 400 });
