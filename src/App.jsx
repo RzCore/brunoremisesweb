@@ -56,19 +56,6 @@ const vehicles = [
   }
 ];
 
-const getFixtureUrl = () => {
-  if (import.meta.env.VITE_FIXTURE_URL) {
-    return import.meta.env.VITE_FIXTURE_URL;
-  }
-  if (typeof window !== 'undefined') {
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    if (isLocalhost) {
-      return 'http://localhost:3000';
-    }
-  }
-  return 'https://brunoremisesweb-mdnb.vercel.app/';
-};
-
 function App() {
   const [activeSection, setActiveSection] = useState('inicio');
   const [navbarScrolled, setNavbarScrolled] = useState(false);
@@ -77,10 +64,7 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [showFixtureBanner, setShowFixtureBanner] = useState(() => {
-    return localStorage.getItem('hideFixtureBanner') !== 'true';
-  });
-  
+
   // Reservation form state
   const [formData, setFormData] = useState({
     name: '',
@@ -203,31 +187,6 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
 
   return (
     <>
-      {/* Fixture Top Announcement Banner */}
-      {showFixtureBanner && (
-        <div className="fixture-top-banner">
-          <div className="banner-content">
-            <span className="banner-badge">🏆 PRODE MUNDIAL 2026</span>
-            <span className="banner-text">
-              ¡Sumate al Prode Oficial de <strong>Remises Bruno</strong> y ganá premios!
-            </span>
-            <a href={getFixtureUrl()} className="banner-cta-link">
-              Participar Ahora
-            </a>
-          </div>
-          <button 
-            className="banner-close" 
-            onClick={() => {
-              setShowFixtureBanner(false);
-              localStorage.setItem('hideFixtureBanner', 'true');
-            }} 
-            aria-label="Cerrar banner"
-          >
-            <X size={16} />
-          </button>
-        </div>
-      )}
-
       {/* Background radial overlays */}
       <div className="bg-glow-container">
         <div className="bg-glow-radial-1"></div>
@@ -235,7 +194,7 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
       </div>
 
       {/* Header & Navigation */}
-      <header className={`navbar-custom ${navbarScrolled ? 'scrolled' : ''} ${showFixtureBanner ? 'has-banner' : ''}`}>
+      <header className={`navbar-custom ${navbarScrolled ? 'scrolled' : ''}`}>
         <a onClick={() => handleNavClick('inicio')} className="logo-container">
           <img src="/assets/img/Logo.jpg" alt="Remises Bruno" className="logo-img" />
           <span className="brand-text gold-text-gradient">REMISES BRUNO</span>
@@ -287,14 +246,6 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
             </a>
           </li>
           <li>
-            <a 
-              className="nav-link-item highlight-fixture"
-              href={getFixtureUrl()}
-            >
-              🏆 Fixture 2026
-            </a>
-          </li>
-          <li>
             <button className="btn-gold" style={{ padding: '8px 20px', fontSize: '14px' }} onClick={() => setShowModal(true)}>
               Reservar
             </button>
@@ -310,18 +261,6 @@ ${formData.message ? `- *Mensaje*: ${formData.message}` : ''}`;
               <Award size={14} /> 25 años de servicio premium
             </div>
             
-            {/* World Cup 2026 Promo Card */}
-            <div className="hero-fixture-card">
-              <span className="fixture-trophy">🏆</span>
-              <div className="hero-fixture-card-body">
-                <h4>Prode Mundial 2026</h4>
-                <p>¡Llevate premios increíbles!</p>
-              </div>
-              <a href={getFixtureUrl()} className="btn-sm-gold">
-                Jugar Gratis
-              </a>
-            </div>
-
             <h1 className="hero-title">
               Viajes Premium con la <span className="gold-text-gradient">MÁXIMA</span> distinción y confort.
             </h1>
